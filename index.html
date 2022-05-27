@@ -58,10 +58,7 @@
                 </li>
             </ul>
             
-        </div>
-             
-        
-               
+        </div> 
     </header>
    <main>
        <!--Section Hero-->
@@ -69,11 +66,20 @@
             <div class="bg-img">
                 <div class="container">
                     <h1 class="hero-title">Эффективные решения для вашего бизнеса</h1>
-                    <button class="button hero-primary" type="button">Заказать услугу</button>
+                    <button  class="button hero-primary" type="button" 
+                    data-open-modal>Заказать услугу</button>
                 </div>
             </div>
-           
+            <div class="backdrop is-hidden" data-backdrop>
+                 <div class="modal" data-modal>
+                    <button class="modal-btn" data-close-modal>
+                        <div class="close-icon"></div>
+                    </button>
+                </div>
+            </div>
         </section>
+
+        
 
         <!-- Section Features-->
         <section class="section features">
@@ -130,19 +136,30 @@
                 <h2 class="section-title">Чем мы занимаемся</h2>
                 <ul class="list">
                     <li class="item">
-                        <img class="img" width="370" 
-                        src="./images/works/img-1.jpg" 
-                        alt="Рабочий стол и клавиатура">
+                        <div class="img-thumb">
+                            <img class="img" width="370" height="294"
+                                src="./images/works/img-1.jpg" 
+                                alt="Рабочий стол и клавиатура">
+                            <p class="sub-title">Десктопные приложения</p>
+                        </div>
                     </li>
+
                     <li class="item">
-                        <img class="img" width="370" 
-                        src="./images/works/img-2.jpg" 
-                        alt="Ноутбук и телефон">
+                        <div class="img-thumb">
+                            <img class="img" width="370" height="294" 
+                                src="./images/works/img-2.jpg" 
+                                alt="Ноутбук и телефон">
+                            <p class="sub-title">Мобильные приложения</p>
+                        </div>
                     </li>
+
                     <li class="item">
-                        <img class="img" width="370" 
-                        src="./images/works/img-3.jpg" 
-                        alt="Человек держит в руках планшет">
+                        <div class="img-thumb">
+                            <img class="img" width="370" height="294"
+                             src="./images/works/img-3.jpg" 
+                             alt="Человек держит в руках планшет">
+                            <p class="sub-title">Дизайнерские решения</p>
+                        </div>
                     </li>
                 </ul>
            </div>
@@ -399,8 +416,8 @@
             </div>
         </section>
 
-   </main>
-   <footer class="footer">
+    </main>
+    <footer class="footer">
        <div class="container">
            <div>
                 <a class="footer link" href="./index.html">
@@ -463,6 +480,7 @@
                 </ul>
             </div>
        </div>
-   </footer>
+    </footer>
+    <script src="./js/modal.js"></script>
 </body>
 </html>

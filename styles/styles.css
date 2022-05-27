@@ -17,6 +17,9 @@
     --pr-icon-fill: #AFB1B8;
 
     --gap-card-set: 30px;
+
+    /* Timing function */
+    --trans-timing: cubic-bezier(0.4, 0, 0.2, 1);
     }
 
 body {
@@ -56,6 +59,7 @@ img {
     height: auto;
 }
 
+
 /* Page-header style */
 .page-header {
     border-bottom: 1px solid#ECECEC;
@@ -92,6 +96,7 @@ img {
     color: var(--accent-color);
 }
 
+
 /* Site-nav */
 .site-nav {
     display: flex;
@@ -112,14 +117,38 @@ img {
     line-height: 1.14;
     letter-spacing: 0.02em;
     text-decoration-line: none;
+
+    transition: color 250ms 
+      var(--trans-timing);
 }
 
-.site-nav .link.current,
-.site-nav .link:hover, 
-.site-nav .link:focus
-{
+.site-nav .link.current {
+    display: inline-block;
+    position: relative;
+
     color: var(--accent-color);
 }
+
+.site-nav .link.current::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 77px;
+        
+    display: block;
+    width: 100%;
+    height: 4px;
+    background: var(--accent-color);
+    border: 2px solid var(--accent-color);
+    border-radius: 2px;   
+}
+
+
+.site-nav .link:hover, 
+.site-nav .link:focus {
+    color: var(--accent-color);
+}
+
 
 /*Header Contacts */
 .contacts {
@@ -128,7 +157,7 @@ img {
     margin-left: auto;
 }
 
-.contacts .item + .item{
+.contacts .item + .item {
     margin-left: var(--gap-card-set);
 }
 
@@ -143,12 +172,19 @@ img {
     line-height: 1.14;
     letter-spacing: 0.02em;
     text-decoration-line: none;
+
+    transition: color 250ms
+      var(--trans-timing);
+      
 }
 
 .contacts .icon {
     margin-right: 10px;
     
     fill: var(--pr-icon-fill);
+
+    transition: fill 250ms 
+    var(--trans-timing);
 }
 
 .contacts .icon-thumb {
@@ -178,7 +214,9 @@ img {
     background-image: linear-gradient(to right, 
     rgba(47, 48, 58, 0.4), 
     rgba(47, 48, 58, 0.4), 
-    rgba(47, 48, 58, 0.4)), url(../images/hero/hero-bg-img.jpg);
+    rgba(47, 48, 58, 0.4)), 
+    url(../images/hero/hero-bg-img.jpg);
+
     background-color: #C4C4C4;
     background-repeat: no-repeat;
     background-position: center;
@@ -201,6 +239,76 @@ img {
     text-transform: uppercase;
 }
 
+
+
+.backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.2);
+
+    opacity: 1;
+    visibility: visible;
+    transition: opacity 250ms var(--trans-timing), 
+    visibility 250ms var(--trans-timing);
+}
+
+.backdrop.is-hidden {
+    visibility: hidden;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.modal {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 528px;
+    height: 581px;
+    
+    background: var(--pr-bg-color);
+    box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 
+    0px 1px 1px rgba(0, 0, 0, 0.14), 
+    0px 2px 1px rgba(0, 0, 0, 0.2);
+    border-radius: 4px;
+
+    transition: transform 250ms var(--trans-timing), 
+    opacity 250ms var(--trans-timing);
+} 
+
+.modal-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 30px;
+    height: 30px;
+    padding: 0;
+
+    border: 1px solid rgba(0, 0, 0, 0.5);
+    border-radius: 50%;
+    background-color: transparent; 
+
+    cursor: pointer;
+}
+
+.close-icon {
+    width: 11px;
+    height: 11px;
+
+    background-image:
+        url(../images/hero/close-icon.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+
 /* Section */
 .section-title {
     margin-bottom: 50px;
@@ -212,6 +320,7 @@ img {
     text-align: center;
     letter-spacing: 0.03em;
 }
+
 
 /* Section Features */
 .section.features {
@@ -265,6 +374,27 @@ img {
 
 .work .item:not(:first-child) {
     margin-left: var(--gap-card-set);
+}
+
+.img-thumb {
+    position: relative;
+}
+.sub-title {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    padding: 27px 0px;
+
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 1.14;
+    text-align: center;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+    
+     color: var(--inv-text-color);
+    background: rgba(47, 48, 58, 0.8);
 }
 
 
@@ -329,6 +459,9 @@ img {
     border-radius: 50%;
 
     box-shadow: none;
+
+    transition: background-color 250ms
+      var(--trans-timing);
 }
 
 .social .link {
@@ -341,6 +474,9 @@ img {
 
 .social .icon {
     fill: var(--pr-icon-fill);
+
+    transition: fill 250ms 
+      var(--trans-timing);
 }
 
 .social .item:hover,
@@ -353,6 +489,7 @@ img {
 {
     fill: var(--inv-text-color);
 }
+
 
 /* Section Our Clients */
 
@@ -387,6 +524,9 @@ img {
     border-radius: 4px;
 
     cursor: pointer;
+
+    transition: border 250ms 
+      var(--trans-timing);
 }
 
 .clients .item:not(:first-child) {
@@ -395,6 +535,9 @@ img {
 
 .clients .icon {
     fill: var(--pr-icon-fill);
+
+    transition: fill 250ms 
+      var(--trans-timing);
 }
 
 .clients .item:hover,
@@ -417,6 +560,8 @@ img {
 
     justify-content: center;
     align-items: flex-start;
+
+
 }
 
 .filter {
@@ -447,7 +592,10 @@ img {
 .projects > .card {
     flex-basis: calc(100% / 3 - var(--gap-card-set));
     margin-left: var(--gap-card-set);
-    margin-top: var(--gap-card-set);   
+    margin-top: var(--gap-card-set);  
+    
+    transition: box-shadow 250ms 
+    var(--trans-timing);
 }
 
 .projects > .card:hover,
@@ -493,6 +641,13 @@ img {
     background-color: var(--btn-bg-color);
     cursor: pointer;
     font-family: inherit;
+
+    transition: color 250ms 
+      var(--trans-timing),
+      background-color 250ms 
+      var(--trans-timing),
+      box-shadow 250ms 
+      var(--trans-timing);
 }
 
 .button.hero-primary {
@@ -505,6 +660,9 @@ img {
     letter-spacing: 0.06em;
 
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
+
+    transition: background 250ms 
+    var(--trans-timing);
 }
 
 .button.hero-primary,
@@ -575,6 +733,9 @@ img {
     color: rgba(255, 255, 255, 0.6);
     letter-spacing: 0.03em;
     text-decoration-line: none;
+
+    transition: color 250ms 
+    var(--trans-timing);
 }
 
 .address .link:hover,
