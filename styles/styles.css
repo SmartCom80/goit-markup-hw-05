@@ -283,29 +283,27 @@ img {
     top: 10px;
     right: 10px;
 
-    display: flex;
-    align-items: center;
-    justify-content: center;
     width: 30px;
     height: 30px;
-    padding: 0;
 
-    border: 1px solid rgba(0, 0, 0, 0.5);
+    border: 1px solid rgba(0, 0, 0, 0.1);
     border-radius: 50%;
-    background-color: transparent; 
+    
+    background-image:
+            url(../images/hero/close-icon.png);
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: 11px;
+        background-color: transparent;
 
     cursor: pointer;
 }
 
-.close-icon {
+.modal-btn::before {
     width: 11px;
     height: 11px;
 
-    background-image:
-        url(../images/hero/close-icon.png);
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
+    
 }
 
 /* Section */
