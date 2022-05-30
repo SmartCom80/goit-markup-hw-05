@@ -261,12 +261,12 @@ img {
 }
 
 .modal {
-    position: absolute;
+    position: absolute; 
+    width: 528px;
+    height: 581px;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 528px;
-    height: 581px;
 
     background: var(--pr-bg-color);
     box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 
@@ -279,31 +279,22 @@ img {
 } 
 
 .modal-btn {
+    display: flex;
     position: absolute;
     top: 10px;
     right: 10px;
 
     width: 30px;
     height: 30px;
+    align-items: center;
+    justify-content: center;
 
     border: 1px solid rgba(0, 0, 0, 0.1);
     border-radius: 50%;
+    padding: 0;
     
-    background-image:
-            url(../images/hero/close-icon.png);
-        background-repeat: no-repeat;
-        background-position: center;
-        background-size: 11px;
-        background-color: transparent;
-
+    background-color: transparent;
     cursor: pointer;
-}
-
-.modal-btn::before {
-    width: 11px;
-    height: 11px;
-
-    
 }
 
 /* Section */
@@ -373,9 +364,10 @@ img {
     margin-left: var(--gap-card-set);
 }
 
-.img-thumb {
+.work .item {
     position: relative;
 }
+
 .sub-title {
     position: absolute;
     left: 0;
@@ -415,7 +407,8 @@ img {
     box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12),
         0px 1px 1px rgba(0, 0, 0, 0.14),
         0px 2px 1px rgba(0, 0, 0, 0.2);
-    border-radius: 0px 0px 4px 4px;}
+    border-radius: 0px 0px 4px 4px;
+}
 
 .team .item:not(:first-child) {
     margin-left: var(--gap-card-set);
@@ -446,27 +439,20 @@ img {
     letter-spacing: 0.03em;
 }
 
-.social > .item:not(:first-child) {
+.social-item:not(:first-child) {
     margin-left: 10px;
-}
-
-.social .item {
-    width: 44px;
-    height: 44px;
-    border-radius: 50%;
-
-    box-shadow: none;
-
-    transition: background-color 250ms
-      var(--trans-timing);
 }
 
 .social .link {
     display: flex;
-    width: 100%;
-    height: 100%;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+
     justify-content: center;
     align-items: center;
+    
+    transition: background-color 250ms var(--trans-timing);
 }
 
 .social .icon {
@@ -476,14 +462,13 @@ img {
       var(--trans-timing);
 }
 
-.social .item:hover,
-.social .item:focus {
+.social .link:hover,
+.social .link:focus {
     background-color: var(--accent-color);
 }
 
-.social .item:hover .icon,
-.social .item:focus .icon
-{
+.social .link:hover .icon,
+.social .link:focus .icon {
     fill: var(--inv-text-color);
 }
 
@@ -512,11 +497,17 @@ img {
     justify-content: center;
 }
 
-.clients .item {
-    padding: 16px 32px;
+.clients .item:not(:first-child) {
+    margin-left: var(--gap-card-set);
+}
 
+.clients .link {
+    display: flex;
     width: 170px;
     height: 92px;
+
+    justify-content: center;
+    align-items: center;
     border: 1px solid var(--pr-icon-fill);
     border-radius: 4px;
 
@@ -526,10 +517,6 @@ img {
       var(--trans-timing);
 }
 
-.clients .item:not(:first-child) {
-    margin-left: var(--gap-card-set);
-}
-
 .clients .icon {
     fill: var(--pr-icon-fill);
 
@@ -537,15 +524,16 @@ img {
       var(--trans-timing);
 }
 
-.clients .item:hover,
-.clients .item:focus {
+.clients .link:hover,
+.clients .link:focus {
     border: 1px solid var(--accent-color);
 }
 
-.clients .item:hover .icon,
-.clients .item:focus .icon {
+.clients .link:hover .icon,
+.clients .link:focus .icon {
     fill: var(--accent-color);
 }
+
 
 /* Section Filters */
 
@@ -593,8 +581,7 @@ img {
     var(--trans-timing);
 }
 
-.projects > .card:hover,
-.projects > .card:focus {
+.projects > .card:hover {
     box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12),
     0px 4px 4px rgba(0, 0, 0, 0.06),
     1px 4px 6px rgba(0, 0, 0, 0.16);
@@ -634,8 +621,7 @@ img {
     color: var(--inv-text-color);
 }
 
-.projects .card:hover .overlay,
-.projects .card:focus .overlay {
+.projects .card:hover .overlay {
     opacity: 1;
     transform: translateY(0);
 }
@@ -656,10 +642,10 @@ img {
 }
 
 .filter-name{   
-    color: var(--sec-text-color);
     font-size: 16px;
     line-height: 1.88;
     letter-spacing: 0.03em;
+    color: var(--sec-text-color);
 }
 
 
@@ -792,10 +778,10 @@ img {
     color: var(--inv-text-color);
 }
 
-.studio-links .item {
-    background: rgba(255, 255, 255, 0.1);;
+.studio-links .link {
+    background-color: rgba(255, 255, 255, 0.1);;
 }
 
 .studio-links .icon {
     fill: var(--inv-text-color);
-}
+} 
